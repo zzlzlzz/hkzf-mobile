@@ -29,8 +29,16 @@ function Index(props) {
     setSwipers(res.data.body);
   };
 
+  const getGroups = async () => {
+    const res = await axios.get('http://localhost:8080/home/groups', {
+      params: { area: 'AREA%7C88cff55c-aaa4-e2e0' },
+    });
+    console.log(res.data.body);
+  };
+
   useEffect(() => {
     getSwipers();
+    getGroups();
   }, []);
 
   const renderSwipers = () => {
